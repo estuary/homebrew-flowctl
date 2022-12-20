@@ -12,6 +12,7 @@ class Flowctl < Formula
   depends_on "rust" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
+  depends_on "protobuf" => :build
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
