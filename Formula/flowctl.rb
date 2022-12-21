@@ -3,11 +3,11 @@
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Flowctl < Formula
   desc "Command line interface for Flow"
-  homepage "https://github.com/estuary/flowctl"
-  url "https://github.com/estuary/flowctl/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "757467ebb8aff45a9231a1ee017418d3e65e1b6b054554e6de34576975c6b95d"
+  homepage "https://github.com/estuary/flow"
+  url "https://github.com/estuary/flowctl/archive/refs/tags/v0.1.6.tar.gz"
+  sha256 "8dcc4410c4fd56ef2902ac7b6ae675834091205e7457a0bed93946c5f02b5ab6"
   license "Business Source License 1.1"
-  version "0.1.2"
+  version "0.1.6"
 
   depends_on "rust" => :build
   depends_on "cmake" => :build
@@ -16,7 +16,8 @@ class Flowctl < Formula
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
-    system "cargo", "install", *std_cargo_args
+    ENV["FLOW_VERSION"] = Flowctl.version
+    system "cargo", "install", *std_cargo_args(path: "./crates/flowctl")
   end
 
   test do
