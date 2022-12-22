@@ -1,5 +1,3 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
 class Flowctl < Formula
   desc "Command line interface for Flow"
   homepage "https://github.com/estuary/flow"
@@ -9,26 +7,36 @@ class Flowctl < Formula
   license "Business Source License 1.1"
   version "0.1.6"
 
-  depends_on "rust" => :build
-  depends_on "cmake" => :build
-  depends_on "go" => :build
-  depends_on "protobuf" => :build
+  on_macos do
+    resource "flowctl-binary" do
+      url "https://github.com/estuary/flow/releases/download/v#{Flowctl.version}/flowctl-multiarch-macos"
+      sha256 "c760f7c9f3f684f9769e13c22133334d8fdf5a65669b6289e0634197f192874e"
+    end
+  end
+
+  on_linux do
+    on_arm do
+      raise "flowctl can only be installed on x86_64 linux systems, please reach out to support@estuary.dev if you need flowctl on arm"
+    end
+    resource "flowctl-binary" do
+      url "https://github.com/estuary/flow/releases/download/v#{Flowctl.version}/flowctl-x86_64-linux"
+      sha256 "17ef11b18cff83c8e0d7ad180e8b798b9089817b80b2a91fce14dc1f0aa70ea8"
+    end
+  end
 
   def install
-    ENV["FLOW_VERSION"] = Flowctl.version
-    system "cargo", "install", *std_cargo_args(path: "./crates/flowctl")
+    binary_name = "flowctl-multiarch-macos"
+    if OS.linux?
+      binary_name = "flowctl-x86_64-linux"
+    end
+
+    resource("flowctl-binary").stage do
+      bin.install binary_name => "flowctl"
+    end
+
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test flowctl`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+    system "flowctl", "--version"
   end
 end
