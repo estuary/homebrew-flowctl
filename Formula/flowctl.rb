@@ -2,15 +2,15 @@ class Flowctl < Formula
   desc "Command line interface for Flow"
   homepage "https://github.com/estuary/flow"
   # When updating this formula to a new version, you need to update this url as well as the `sha256` and `version` below!
-  url "https://github.com/estuary/flow/archive/refs/tags/v0.1.6.tar.gz"
-  sha256 "8dcc4410c4fd56ef2902ac7b6ae675834091205e7457a0bed93946c5f02b5ab6"
+  url "https://github.com/estuary/flow/archive/refs/tags/v0.1.8.tar.gz"
+  sha256 "559ed0e74e53e4776781355aa7fadefb97f63ebae4ed1f2924764591f2fcccb8"
   license "Business Source License 1.1"
-  version "0.1.6"
+  version "0.1.8"
 
   on_macos do
     resource "flowctl-binary" do
       url "https://github.com/estuary/flow/releases/download/v#{Flowctl.version}/flowctl-multiarch-macos"
-      sha256 "c760f7c9f3f684f9769e13c22133334d8fdf5a65669b6289e0634197f192874e"
+      sha256 "29aee07bed626964b585c18323a5d5170cd94d183ced7658cdde03e72cddbe05"
     end
   end
 
@@ -20,7 +20,7 @@ class Flowctl < Formula
     end
     resource "flowctl-binary" do
       url "https://github.com/estuary/flow/releases/download/v#{Flowctl.version}/flowctl-x86_64-linux"
-      sha256 "17ef11b18cff83c8e0d7ad180e8b798b9089817b80b2a91fce14dc1f0aa70ea8"
+      sha256 "4d6305c700db7c92f22a55c54714159aff7f04fc7a1be164b77ee9f443d82f7a"
     end
   end
 
