@@ -2,7 +2,7 @@ class Flowctl < Formula
   desc "Command line interface for Flow"
   homepage "https://github.com/estuary/flow"
   # When updating this formula to a new version, you need to update this url as well as the `sha256` and `version` below!
-  url "https://github.com/estuary/flow/archive/refs/tags/v0.2.2.tar.gz"
+  url "https://github.com/estuary/flow/archive/refs/tags/v0.2.3.tar.gz"
   sha256 "ac600022baa0dbbf7feba9763bf7f1dfc305f7ce5de0da9124fe46f055337fd8"
   license "Business Source License 1.1"
   version "0.2.3"
