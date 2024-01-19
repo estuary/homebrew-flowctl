@@ -3,15 +3,15 @@ class Flowctl < Formula
   homepage "https://github.com/estuary/flow"
   # When updating this formula to a new version, you need to update this url as well as the "sha256" and "version" below!
   # For example: "shasum -a 256 v0.3.2.tar.gz"
-  url "https://github.com/estuary/flow/archive/refs/tags/v0.3.11.tar.gz"
-  sha256 "fd4157f3e0077af58aeca0da4e8dba7609748e766e2362e32bf8704fda0f2231"
+  url "https://github.com/estuary/flow/archive/refs/tags/v0.3.12.tar.gz"
+  sha256 "04a45341660acc5cd1b9bbcaef6dc4f96124f1b56b24aa727e894beefb64cc07"
   license "Business Source License 1.1"
-  version "0.3.11"
+  version "0.3.12"
 
   on_macos do
     resource "flowctl-binary" do
-      url "https://github.com/estuary/flow/releases/download/v0.3.11/flowctl-multiarch-macos"
-      sha256 "dfc5e21c5ca4e0e80ea3cfbbacf922ffb44a5bd344b96f64e178b0184af680b1"
+      url "https://github.com/estuary/flow/releases/download/v0.3.12/flowctl-multiarch-macos"
+      sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
     end
   end
 
@@ -20,8 +20,8 @@ class Flowctl < Formula
       raise "flowctl can only be installed on x86_64 linux systems, please reach out to support@estuary.dev if you need flowctl on arm"
     end
     resource "flowctl-binary" do
-      url "https://github.com/estuary/flow/releases/download/v0.3.11/flowctl-x86_64-linux"
-      sha256 "ed240981eea888edc96409f8652b445c3024eb61253939be28c0712cc40b526a"
+      url "https://github.com/estuary/flow/releases/download/v0.3.12/flowctl-x86_64-linux"
+      sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
     end
   end
 
