@@ -11,7 +11,7 @@ class Flowctl < Formula
   on_macos do
     resource "flowctl-binary" do
       url "https://github.com/estuary/flow/releases/download/v0.6.12/flowctl-multiarch-macos"
-      sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+      sha256 "eb2f72ad0e187ee4417d64536fb320f1c0782c0a5198207907ab0ec142211c4d"
     end
   end
 
@@ -21,7 +21,7 @@ class Flowctl < Formula
     end
     resource "flowctl-binary" do
       url "https://github.com/estuary/flow/releases/download/v0.6.12/flowctl-x86_64-linux"
-      sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+      sha256 "0edd24b69c708a967682967e4eb396296d57a60cbbd140c6669eb6c0a5576200"
     end
   end
 
